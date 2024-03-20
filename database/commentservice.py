@@ -20,7 +20,7 @@ def add_comment(post_id, user_id, comment_text):
 
 
 # Удаления комментария
-def delete_comment(post_id, comment_id):
+def delete_comment_db(post_id, comment_id):
     db = next(get_db())
     # Если не сработает, то здесь
     exact_comment = db.query(PostComment).filter_by(post_id=post_id, comment_id=comment_id).first()
@@ -35,7 +35,7 @@ def delete_comment(post_id, comment_id):
 # Изменить определенный коммент
 def change_comment_db(post_id, comment_id, change_text):
     db = next(get_db())
-    exact_comment = db.query(PostComment).filter_by(post_id, comment_id=comment_id).first()
+    exact_comment = db.query(PostComment).filter_by(post_id=post_id, comment_id=comment_id).first()
     if exact_comment:
         exact_comment.comment_text = change_text
         db.commit()
