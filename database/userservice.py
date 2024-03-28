@@ -45,16 +45,6 @@ def login_user_db(username, password):
         return f'Аккаунт с номером  не найден'
 
 
-# # Логин оут пользователя
-# def logout_user_db(phone_number, password):
-#     db = next(get_db())
-#     checker = db.query(User).filter_by(phone_number=phone_number, password=password).first()
-#     if checker:
-#         return f'Вы успешно вошли в аккаунт  по номеру телефона - {phone_number}'
-#     else:
-#         return f'Аккаунт с номером {checker.phone_number} не найден'
-
-
 # Удаления пользователя
 def delete_user_db(user_id):
     db = next(get_db())
